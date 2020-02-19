@@ -3,15 +3,13 @@ package com.ubs.carmasterapp.controller;
 import com.ubs.carmasterapp.exception.ResourceNotFoundException;
 import com.ubs.carmasterapp.model.Car;
 import com.ubs.carmasterapp.service.CarService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -41,7 +39,8 @@ public class CarController {
 
     @PutMapping("/cars/{id}")
     public ResponseEntity<Car> updateCar(@PathVariable(value = "id") Integer carId,
-                                                   @Valid @RequestBody Car car) throws ResourceNotFoundException {
+                                         @Valid @RequestBody Car car)
+            throws ResourceNotFoundException {
         Car updatedCar = carService.updateCar(car, carId);
         return ResponseEntity.ok(updatedCar);
     }

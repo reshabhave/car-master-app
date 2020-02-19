@@ -2,7 +2,6 @@ package com.ubs.carmasterapp.model;
 
 import com.ubs.carmasterapp.validator.NoSpecialCharacter;
 import com.ubs.carmasterapp.validator.OldCarCheck;
-
 import javax.persistence.*;
 
 @Entity
@@ -21,7 +20,8 @@ public class Car {
 
     public Car() {}
 
-    public Car(String carName, double price, String model, Integer yearOfManufacture, String fuelType){
+    public Car(String carName, double price, String model, Integer yearOfManufacture,
+               String fuelType){
         this.carName = carName;
         this.price = price;
         this.model = model;

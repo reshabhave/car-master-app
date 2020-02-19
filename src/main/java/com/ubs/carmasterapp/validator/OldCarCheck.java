@@ -1,8 +1,8 @@
 package com.ubs.carmasterapp.validator;
 
+import java.lang.annotation.*;
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.*;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

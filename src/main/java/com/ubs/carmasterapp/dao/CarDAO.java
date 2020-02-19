@@ -3,10 +3,9 @@ package com.ubs.carmasterapp.dao;
 import com.ubs.carmasterapp.exception.ResourceNotFoundException;
 import com.ubs.carmasterapp.model.Car;
 import com.ubs.carmasterapp.repository.CarRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class CarDAO {
@@ -14,8 +13,8 @@ public class CarDAO {
     CarRepository carRepository;
 
     public Car findCarById(Integer carId) throws ResourceNotFoundException {
-        Car car = carRepository.findById(carId)
-                .orElseThrow(() -> new ResourceNotFoundException("Car not found for this carId :: " + carId));
+        Car car = carRepository.findById(carId).orElseThrow(() ->
+                new ResourceNotFoundException("Car not found for this carId :: " + carId));
         return car;
     }
 
@@ -30,8 +29,9 @@ public class CarDAO {
     }
 
     public Car updateCar(Car car, Integer carId) throws ResourceNotFoundException{
-        Car existingCar = carRepository.findById(carId)
-                .orElseThrow(() -> new ResourceNotFoundException("Car cannot be updated as not found for carId :: " + carId));
+        Car existingCar = carRepository.findById(carId).orElseThrow(() ->
+                new ResourceNotFoundException("Car cannot be updated as not found for carId :: "
+                                             + carId));
         existingCar.setCarName(car.getCarName());
         existingCar.setPrice(car.getPrice());
         existingCar.setModel(car.getModel());
@@ -42,10 +42,10 @@ public class CarDAO {
     }
 
     public Boolean deleteCar(Integer carId) throws ResourceNotFoundException{
-        Car existingCar = carRepository.findById(carId)
-                .orElseThrow(() -> new ResourceNotFoundException("Car cannot be deleted as not found for carId :: " + carId));
+        Car existingCar = carRepository.findById(carId).orElseThrow(() ->
+                new ResourceNotFoundException("Car cannot be deleted as not found for carId :: "
+                                             + carId));
         carRepository.delete(existingCar);
         return Boolean.TRUE;
     }
-
 }

@@ -3,11 +3,10 @@ package com.ubs.carmasterapp.service;
 import com.ubs.carmasterapp.dao.CarDAO;
 import com.ubs.carmasterapp.exception.ResourceNotFoundException;
 import com.ubs.carmasterapp.model.Car;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CarService {
